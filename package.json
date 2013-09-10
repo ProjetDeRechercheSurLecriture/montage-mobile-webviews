@@ -1,0 +1,27 @@
+{
+  "name": "montage-mobile-webviews",
+  "version": "0.0.0",
+  "description": "Montage demos for Android and iOS embedded WebViews",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cesine/montage-mobile-webviews.git"
+  },
+  "keywords": [
+    "montage",
+    "android"
+  ],
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-exec": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "cordova": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/cesine/montage-mobile-webviews/issues"
+  }
+}
