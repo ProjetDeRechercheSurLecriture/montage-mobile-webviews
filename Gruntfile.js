@@ -27,6 +27,16 @@ module.exports = function(grunt) {
         cmd: function() {
           return 'echo "run build (move js into assets folder) script" ';
         }
+      },
+      android: {
+        cmd: function() {
+          return 'cordova run android';
+        }
+      },
+      ios: {
+        cmd: function() {
+          return './platforms/ios/cordova/run ';
+        }
       }
     },
     jshint: {
@@ -54,5 +64,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'exec:echo_name:jenkins:travis']);
   grunt.registerTask('download', ['jshint', 'exec:download']);
   grunt.registerTask('build', ['jshint', 'exec:build']);
+  grunt.registerTask('android', ['jshint', 'exec:android']);
+  grunt.registerTask('ios', ['jshint', 'exec:ios']);
 
 };
