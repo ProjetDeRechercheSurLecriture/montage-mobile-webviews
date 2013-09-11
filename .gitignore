@@ -2,6 +2,36 @@
 platforms/android/cordova
 platforms/android/assets
 
+platforms/ios/www
+platforms/ios/cordova
+
+
+########## iPad ##############
+
+# Xcode
+.DS_Store
+*/build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.hmap
+project.xcworkspace
+#CocoaPods
+Pods
+
+
+########## Android ############
+
 # built application files
 *.apk
 *.ap_
