@@ -29,6 +29,11 @@ module.exports = function(grunt) {
           return 'cordova run android';
         }
       },
+      android_build: {
+        cmd: function() {
+          return './platforms/android/cordova/build';
+        }
+      },
       android_test: {
         cmd: function() {
           return 'android update project -p ./platforms/android && cd platforms/android && ant clean debug install';
@@ -127,5 +132,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['exec:android_test', 'exec:ios_test']);
 
   // Run continuous integration tests for travis/jenkins
-  grunt.registerTask('ci-test', ['update', 'exec:android', 'test']);
+  grunt.registerTask('ci-test', [ 'android']);
+  // grunt.registerTask('ci-test', ['update', 'exec:android_build', 'test']);
 };
