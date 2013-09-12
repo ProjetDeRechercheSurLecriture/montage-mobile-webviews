@@ -29,9 +29,19 @@ module.exports = function(grunt) {
           return 'cordova run android';
         }
       },
+      android_test: {
+        cmd: function() {
+          return 'android update project -p ./platforms/android && cd platforms/android && ant clean debug install';
+        }
+      },
       ios: {
         cmd: function() {
           return 'cordova build ios && ./platforms/ios/cordova/run ';
+        }
+      },
+      ios_test: {
+        cmd: function() {
+          return 'echo "There are no tests set up for the iOS platform" ';
         }
       }
     },
@@ -107,6 +117,12 @@ module.exports = function(grunt) {
   // Build and debug/test on devices
   grunt.registerTask('android', ['jshint', 'exec:android']);
   grunt.registerTask('ios', ['jshint', 'exec:ios']);
+
+  // Run tests on emulators/devices using travis/jenkins
+  grunt.registerTask('test-android', ['jshint', 'exec:android_test']);
+  grunt.registerTask('test-ios', ['jshint', 'exec:ios_test']);
+  grunt.registerTask('test', ['jshint', 'exec:android_test', 'exec:ios_test']);
+
 
   // Warning calling update will download all the latest demos and build them into the app, replacing any previous demos
   grunt.registerTask('update', ['jshint', 'exec:download_demos', 'exec:build_demos_for_production', 'copy:demos']);
