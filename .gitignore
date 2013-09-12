@@ -1,3 +1,6 @@
+# Montage demos downloaded from NPM/GitHub
+www/node_modules
+
 # cordova copied files
 platforms/android/cordova
 platforms/android/assets
