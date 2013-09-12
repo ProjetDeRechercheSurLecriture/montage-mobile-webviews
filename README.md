@@ -1,4 +1,4 @@
-# montage-mobile-webviews [![Build Status](https://secure.travis-ci.org/cesine/montage-mobile-webviews.png?branch=master)](http://travis-ci.org/cesine/montage-mobile-webviews)
+# montage-mobile-webviews [![Build Status](https://secure.travis-ci.org/cesine/montage-mobile-webviews.png?branch=travis)](http://travis-ci.org/cesine/montage-mobile-webviews)
 
 Montage demos for Android embedded WebViews
 
