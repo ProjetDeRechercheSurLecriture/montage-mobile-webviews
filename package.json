@@ -29,7 +29,8 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
     "grunt-contrib-copy": "*",
-    "cordova": "*"
+    "cordova": "*",
+    "mop": "*"
   },
   "bugs": {
     "url": "https://github.com/cesine/montage-mobile-webviews/issues"

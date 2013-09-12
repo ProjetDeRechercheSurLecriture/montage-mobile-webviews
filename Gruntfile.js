@@ -18,6 +18,12 @@ module.exports = function(grunt) {
           return 'npm install && cd node_modules/montage && npm install';
         }
       },
+      build_demos_for_production: {
+        cmd: function() {
+          // return 'cd node_modules/popcorn && mop && cd ../../node_modules/paparazzi && mop && cd ../../node_modules/calculator && mop && cd ../../node_modules/photofx && mop && cd ../../node_modules/card && mop && cd ../../node_modules/storyboard && mop ';
+          return 'cd node_modules/popcorn && mop ';
+        }
+      },
       android: {
         cmd: function() {
           return 'cordova run android';
@@ -94,10 +100,14 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'exec:echo_help']);
-  grunt.registerTask('download', ['jshint', 'exec:download']);
-  grunt.registerTask('build', ['jshint', 'exec:build']);
+
+  // Just download fresh demos, but dont overwrite contents of www/
+  grunt.registerTask('download', ['jshint', 'exec:download_demos']);
+
+  // Build and debug/test on devices
   grunt.registerTask('android', ['jshint', 'exec:android']);
   grunt.registerTask('ios', ['jshint', 'exec:ios']);
-  grunt.registerTask('update', ['jshint', 'exec:download_demos', 'copy:demos']);
 
+  // Warning calling update will download all the latest demos and build them into the app, replacing any previous demos
+  grunt.registerTask('update', ['jshint', 'exec:download_demos', 'exec:build_demos_for_production', 'copy:demos']);
 };
