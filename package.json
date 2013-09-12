@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "montage": "git+ssh://git@github.com:cesine/montage.git",
-    "popcorn-demo": "git+ssh://git@github.com:montagejs/popcorn.git",
+    "popcorn-demo": "git+ssh://git@github.com:cesine/popcorn.git",
     "paparazzi-demo": "git+ssh://git@github.com:montagejs/paparazzi.git",
     "calculator-demo": "git+ssh://git@github.com:montagejs/calculator.git",
     "photofx-demo": "git+ssh://git@github.com:montagejs/photofx.git",
