@@ -2,11 +2,11 @@
 www/node_modules
 
 # cordova copied files
-platforms/android/cordova
+#platforms/android/cordova
 platforms/android/assets
 
 platforms/ios/www
-platforms/ios/cordova
+#platforms/ios/cordova
 
 
 ########## iPad ##############
