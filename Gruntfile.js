@@ -59,7 +59,7 @@ module.exports = function(grunt) {
           }, // includes files in src and its subdirs
           {
             expand: true,
-            src: ['node_modules/popcorn/**'],
+            src: ['node_modules/popcorn/builds/popcorn/**'],
             dest: 'www/'
           }, // includes files in src and its subdirs
           {
