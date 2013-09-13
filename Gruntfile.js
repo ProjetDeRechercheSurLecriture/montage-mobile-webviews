@@ -36,12 +36,17 @@ module.exports = function(grunt) {
       },
       android_build: {
         cmd: function() {
-          return './platforms/android/cordova/build';
+          return 'cd platforms/android && ant clean debug install';
         }
       },
       android_test: {
         cmd: function() {
           return 'android update project -p ./platforms/android && cd platforms/android && ant clean debug install';
+        }
+      },
+      android_test_webview: {
+        cmd: function() {
+          return 'wget https://selenium.googlecode.com/files/android-server-2.32.0.apk && adb install android-server-2.32.0.apk && adb  shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true && adb  forward tcp:8080 tcp:8080';
         }
       },
       ios: {
@@ -137,6 +142,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['exec:android_test', 'exec:ios_test']);
 
   // Run continuous integration tests for travis/jenkins
-  grunt.registerTask('ci-test', [ 'android']);
+  grunt.registerTask('ci-test', [ 'exec:android_build', 'exec:android_test_webview']);
   // grunt.registerTask('ci-test', ['update', 'exec:android_build', 'test']);
 };
