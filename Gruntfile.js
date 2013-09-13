@@ -18,6 +18,11 @@ module.exports = function(grunt) {
           return 'npm install && cd node_modules/montage && npm install';
         }
       },
+      update_assets_from_www: {
+        cmd: function() {
+          return './scripts/copy_assets_from_www_to_platforms.sh';
+        }
+      },
       build_demos_for_production: {
         cmd: function() {
           // return 'cd node_modules/popcorn && mop && cd ../../node_modules/paparazzi && mop && cd ../../node_modules/calculator && mop && cd ../../node_modules/photofx && mop && cd ../../node_modules/card && mop && cd ../../node_modules/storyboard && mop ';
@@ -120,7 +125,7 @@ module.exports = function(grunt) {
   grunt.registerTask('download', ['jshint', 'exec:download_demos']);
 
   // Warning calling update will download all the latest demos and build them into the app, replacing any previous demos
-  grunt.registerTask('update', ['jshint', 'exec:download_demos', 'exec:build_demos_for_production', 'copy:demos']);
+  grunt.registerTask('update', ['jshint', 'exec:download_demos', 'exec:build_demos_for_production', 'exec:update_assets_from_www', 'copy:demos']);
 
   // Build and debug/test on devices
   grunt.registerTask('android', ['jshint', 'exec:android']);
