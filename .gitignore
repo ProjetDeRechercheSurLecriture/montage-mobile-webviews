@@ -1,6 +1,11 @@
 # Montage demos downloaded from NPM/GitHub
 www/node_modules
 
+# copied assets (originals are in www)
+platforms/android/res/drawable*
+platforms/ios/MobileEmbeddedDemos/Resources/icons
+platforms/ios/MobileEmbeddedDemos/Resources/splash
+
 # cordova copied files
 #platforms/android/cordova
 platforms/android/assets
