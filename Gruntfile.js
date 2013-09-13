@@ -148,6 +148,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['exec:android_test', 'exec:ios_test']);
 
   // Run everything to set up a new machine or continuous integration tests for travis/jenkins
-  grunt.registerTask('everything', [ 'exec:update_assets_from_www', 'exec:android_build', 'exec:android_test_webview', 'selenium_test']);
+  grunt.registerTask('everything', [ 'exec:update_assets_from_www', 'exec:android_build', 'exec:android_test_webview', 'exec:selenium_test']);
   // grunt.registerTask('ci-test', ['update', 'exec:android_build', 'test']);
 };
