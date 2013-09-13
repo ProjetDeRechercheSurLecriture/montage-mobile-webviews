@@ -34,6 +34,14 @@ public class MobileEmbeddedDemosTest extends
 		boolean placeholder = true;
 		Assert.assertTrue(placeholder);
 	}
+
+	public void testPopcorn() throws Throwable {
+		Assert.assertNotNull(mActivity);
+		mActivity.loadUrl("file:///android_asset/node_modules/popcorn/builds/popcorn/index.html");
+		
+		Assert.assertEquals(mActivity.backHistory(), true);
+	}
+
 	
 	@Override
 	protected void setUp() throws Exception {
