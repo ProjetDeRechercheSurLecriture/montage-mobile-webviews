@@ -3,6 +3,7 @@ www/node_modules
 
 # copied assets (originals are in www)
 platforms/android/res/drawable*
+platforms/android-test/res/drawable*
 platforms/ios/MobileEmbeddedDemos/Resources/icons
 platforms/ios/MobileEmbeddedDemos/Resources/splash
 
