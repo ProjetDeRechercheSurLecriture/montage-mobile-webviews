@@ -58,6 +58,12 @@ module.exports = function(grunt) {
         cmd: function() {
           return 'echo "There are no tests set up for the iOS platform" ';
         }
+      },
+      /* https://code.google.com/p/selenium/wiki/AndroidDriver */
+      selenium_test: {
+        cmd: function() {
+          return 'echo "TODO now we can run javascript tests in the Android WebView by contacting http://localhost:8080/wd/hub" ';
+        }
       }
     },
     jshint: {
@@ -141,7 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test-ios', ['jshint', 'exec:ios_test']);
   grunt.registerTask('test', ['exec:android_test', 'exec:ios_test']);
 
-  // Run continuous integration tests for travis/jenkins
-  grunt.registerTask('ci-test', [ 'exec:android_build', 'exec:android_test_webview']);
+  // Run everything to set up a new machine or continuous integration tests for travis/jenkins
+  grunt.registerTask('everything', [ 'exec:update_assets_from_www', 'exec:android_build', 'exec:android_test_webview', 'selenium_test']);
   // grunt.registerTask('ci-test', ['update', 'exec:android_build', 'test']);
 };
