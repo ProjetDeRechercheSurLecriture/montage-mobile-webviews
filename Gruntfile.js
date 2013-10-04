@@ -64,6 +64,16 @@ module.exports = function(grunt) {
         cmd: function() {
           return 'echo "TODO now we can run javascript tests in the Android WebView by contacting http://localhost:8080/wd/hub" ';
         }
+      }, 
+      cordova_js_test: {
+        cmd: function() {
+          return ' mkdir deps || echo "" ; cd deps  ;  git clone https://github.com/apache/cordova-mobile-spec.git || echo "" ;  cordova platform add ios android ; cordova plugin add ../cordova-mobile-spec/dependencies-plugin ; rm -r www ; ln -s ../cordova-mobile-spec www ; cordova platform add android ; cordova run android ; ';
+        }
+      }, 
+      cordova_android_test: {
+        cmd: function() {
+          return 'mkdir deps || echo "" ; cd deps ; git clone https://github.com/apache/cordova-android.git || echo "" ; cd cordova-android/framework ; android update project -p . -t android-18 --subprojects ; ant debug install  ; ant jar ; cd ../test && mkdir libs ||  echo ""  ; cp ../framework/cordova* libs/ ; android update project -p . -t android-18 --subprojects ; ant debug install ; adb shell am instrument -w org.apache.cordova.test/android.test.InstrumentationTestRunner ';
+        }
       }
     },
     jshint: {
