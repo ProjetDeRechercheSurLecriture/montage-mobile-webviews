@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       build_demos_for_production: {
         cmd: function() {
           // return 'cd node_modules/popcorn && mop && cd ../../node_modules/paparazzi && mop && cd ../../node_modules/calculator && mop && cd ../../node_modules/photofx && mop && cd ../../node_modules/card && mop && cd ../../node_modules/storyboard && mop ';
-          return 'cd node_modules/popcorn && mop ';
+          return ' mop --version || sudo npm install -g mop && cd node_modules/popcorn && npm install  || echo "" ; mop && cd node_modules/montage && npm install  || echo "" ; mop ';
         }
       },
       android: {
