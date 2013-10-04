@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       },
       android_test_webview: {
         cmd: function() {
-          return 'wget https://selenium.googlecode.com/files/android-server-2.32.0.apk && adb install android-server-2.32.0.apk && adb  shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true && adb  forward tcp:8080 tcp:8080';
+          return 'ls android-server-2.32.0.apk || { curl -O --retry 999 --retry-max-time 0 -C -  https://selenium.googlecode.com/files/android-server-2.32.0.apk; } && adb install android-server-2.32.0.apk || { echo "Already installed"; } && adb  shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true && adb  forward tcp:8080 tcp:8080 || { echo "Webdriver already started and bound to socket"; } ';
         }
       },
       ios: {
