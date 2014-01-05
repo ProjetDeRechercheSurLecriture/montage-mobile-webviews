@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       build_demos_for_production: {
         cmd: function() {
           // return 'cd node_modules/popcorn && mop && cd ../../node_modules/paparazzi && mop && cd ../../node_modules/calculator && mop && cd ../../node_modules/photofx && mop && cd ../../node_modules/card && mop && cd ../../node_modules/storyboard && mop ';
-          return 'cd node_modules/popcorn && mop ';
+          return ' mop --version || sudo npm install -g mop && cd node_modules/popcorn && npm install  || echo "" ; mop && cd node_modules/montage && npm install  || echo "" ; mop ';
         }
       },
       android: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       },
       android_test_webview: {
         cmd: function() {
-          return 'wget https://selenium.googlecode.com/files/android-server-2.32.0.apk && adb install android-server-2.32.0.apk && adb  shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true && adb  forward tcp:8080 tcp:8080';
+          return 'ls android-server-2.32.0.apk || { curl -O --retry 999 --retry-max-time 0 -C -  https://selenium.googlecode.com/files/android-server-2.32.0.apk; } && adb install android-server-2.32.0.apk || { echo "Already installed"; } && adb  shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true && adb  forward tcp:8080 tcp:8080 || { echo "Webdriver already started and bound to socket"; } ';
         }
       },
       ios: {
@@ -63,6 +63,16 @@ module.exports = function(grunt) {
       selenium_test: {
         cmd: function() {
           return 'echo "TODO now we can run javascript tests in the Android WebView by contacting http://localhost:8080/wd/hub" ';
+        }
+      }, 
+      cordova_js_test: {
+        cmd: function() {
+          return ' mkdir deps || echo "" ; cd deps  ;  git clone https://github.com/apache/cordova-mobile-spec.git || echo "" ;  cordova platform add ios android ; cordova plugin add ../cordova-mobile-spec/dependencies-plugin ; rm -r www ; ln -s ../cordova-mobile-spec www ; cordova platform add android ; cordova run android ; ';
+        }
+      }, 
+      cordova_android_test: {
+        cmd: function() {
+          return 'mkdir deps || echo "" ; cd deps ; git clone https://github.com/apache/cordova-android.git || echo "" ; cd cordova-android/framework ; android update project -p . -t android-18 --subprojects ; ant debug install  ; ant jar ; cd ../test && mkdir libs ||  echo ""  ; cp ../framework/cordova* libs/ ; android update project -p . -t android-18 --subprojects ; ant debug install ; adb shell am instrument -w org.apache.cordova.test/android.test.InstrumentationTestRunner ';
         }
       }
     },
