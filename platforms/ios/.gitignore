@@ -3,4 +3,6 @@
 *.pbxuser
 .DS_Store
 build
+!cordova/build
+!cordova/build.xcconfig
 www/phonegap.js
