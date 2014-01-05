@@ -8,7 +8,7 @@ See commands available in Gruntfile.js
 ## Examples 
 
 ```bash
-$ grunt everything # downloads all source code, sets up test runners, runs tests (for running in Jenkins or Travis)
+$ ./scripts/set_up_new_machine.sh && grunt everything # downloads all source code, sets up test runners, runs tests (for running in Jenkins or Travis)
 
 $ grunt test-android # copies www assets to android and runs the android tests (for developing locally)
 $ grunt test-ios # copies www assets to ios and runs the ios tests (for developing locally)
