@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       android: {
         cmd: function() {
-          return 'cordova run android';
+          return 'cd platforms/android/cordova && npm install && cd ../ && cordova run android';
         }
       },
       android_build: {
